@@ -10,11 +10,12 @@ import com.practice.Utility.HibernateUtility;
 public class UserExist {
 	
 	public int count=0;
+	public int cost = 20;
 	//UserDetails user = new UserDetails();
 	
 	public void userExist(String name) {
 		
-		SessionFactory factory =HibernateUtility.getSessionFactory();
+		SessionFactory factory = HibernateUtility.getSessionFactory();
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		
@@ -25,16 +26,24 @@ public class UserExist {
 			
 			user.setUsername(name);
 			user.setTotalOprPerformed(1);
+			//set cost per calculation
+			user.setCost(cost);
 			session.persist(user);
 		}
 		else {
-			count = user.getTotalOprPerformed();
-			user.setTotalOprPerformed(count+1);
-			session.persist(user);
+			 count = user.getTotalOprPerformed();
+		     int newcount = count + 1;
+		     user.setTotalOprPerformed(newcount);
+		     user.setCost(cost * newcount);
+
+			//session.persist(user);
+		     //to update existing details we use merge 
+			session.merge(user);
 		}
+				
 		transaction.commit();
 		session.close();
+		
+		//return user.getCost();
 	}
-	
-	
 }
