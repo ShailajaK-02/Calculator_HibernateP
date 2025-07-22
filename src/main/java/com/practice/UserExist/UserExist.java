@@ -30,6 +30,7 @@ public class UserExist {
 			user.setCost(cost);
 			session.persist(user);
 		}
+		//count total operation performed * with new count
 		else {
 			 count = user.getTotalOprPerformed();
 		     int newcount = count + 1;
