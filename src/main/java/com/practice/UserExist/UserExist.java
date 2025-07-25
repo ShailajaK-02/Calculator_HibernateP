@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import com.practice.Entity.UserDetails;
 import com.practice.Utility.HibernateUtility;
-
+//User exist Details
 public class UserExist {
 	
 	public int count=0;
