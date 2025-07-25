@@ -1,5 +1,6 @@
 package com.practice.Calculator;
 
+//Operations
 public class Calculator {
 	
 	public double addition(double num1, double num2) {
