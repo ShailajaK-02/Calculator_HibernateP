@@ -2,7 +2,7 @@ package com.practice.Calculator;
 
 //Operations
 public class Calculator {
-	
+	//add 
 	public double addition(double num1, double num2) {
 		
 		return num1 + num2 ;
