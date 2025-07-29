@@ -14,6 +14,7 @@ public class Calculator {
 		return num1 - num2 ;
 	}
 	
+	//multiplication
 	public double multiplication(double num1, double num2) {
 	
 		return num1 * num2 ;
